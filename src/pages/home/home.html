@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Grabar Audio
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <div  [class]=mainmenuclass>
+      <ion-row [class]=classtext  text-center>
+          <ion-col >
+            <span>{{instructiontext}}</span>
+          </ion-col>
+      </ion-row>
+      <ion-row text-center class="ion-hide">
+        <ion-col >
+          <button [class]=classvariable  ion-item color="dark" (click)=recordaudio()>
+              <ion-icon name="mic"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="outer">
+      <div [class]="optionclass" >
+      <ion-row class="menu-options">
+        <ion-col>
+          <ion-range color="primary" min="0" max="{{duration}}" pin="true"  [(ngModel)]="position">
+              <ion-label range-left>{{ position*1000 | date:'mm:ss' }}</ion-label>
+              <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>
+              <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:'mm:ss' }}</ion-label>
+          </ion-range>  
+          <button class="play round-button-menu" ion-button color="dark" (click)=playaudio()>
+            <ion-icon  name="play"></ion-icon>
+          </button>
+      
+          <button ion-button color="dark"  class="reset round-button-menu" (click)=releaseaudio()>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="send-button" text-center>
+          <ion-col >
+            <button ion-button (click)=enviardata()>Enviar</button>
+          </ion-col>
+      </ion-row>
+    </div>
+    </div>
+  <!--  <ion-row align-items-center text-center >
+      <ion-col>
+        <ion-icon name="radio-button-on"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row text-center>
+        <ion-col>  
+          <button ion-button color="primary" >Enviar Prueba</button>
+        </ion-col>
+    </ion-row>-->
+  </ion-grid>
+</ion-content>

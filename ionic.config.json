@@ -1,0 +1,7 @@
+{
+  "name": "mictest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
